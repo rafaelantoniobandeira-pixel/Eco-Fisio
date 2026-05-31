@@ -26,25 +26,25 @@ export const SERVICES = [
   {
     id: "fisioterapia-dores-cronicas",
     title: "Fisioterapia para Dores Crônicas",
-    description: "Tratamento de dores persistentes com abordagem funcional e humanizada para adultos.",
+    description: "Tratamento de dores persistentes com abordagem funcional e humanizada para adultos, idosos e jovens.",
     iconType: "pulse"
   },
   {
     id: "fisioterapia-ortopedica-adultos",
-    title: "Fisioterapia Ortopédica para Adultos",
-    description: "Reabilitação de lesões, pós-cirúrgico, LER/DORT e problemas articulares.",
+    title: "Fisioterapia Ortopédica (Adultos e Idosos)",
+    description: "Reabilitação de lesões, pós-cirúrgico, desgaste articular (artrose), osteoporose, dores na coluna e fortalecimento para o idoso.",
     iconType: "joint"
   },
   {
     id: "osteopatia",
     title: "Osteopatia",
-    description: "Técnica manual global que trata disfunções do sistema musculoesquelético, visceral e craniano.",
+    description: "Abordagem global e manipulação manual para disfunções do sistema musculoesquelético, visceral e craniano em todas as idades.",
     iconType: "hands"
   },
   {
     id: "fisioterapia-respiratoria-adultos",
-    title: "Fisioterapia Respiratória para Adultos",
-    description: "Para doenças respiratórias crônicas, pós-COVID e reabilitação pulmonar.",
+    title: "Fisioterapia Respiratória (Adultos e Idosos)",
+    description: "Para doenças respiratórias crônicas (DPOC, asma), pós-COVID, reabilitação pulmonar e melhora do fôlego e disposição.",
     iconType: "lungs"
   }
 ];
@@ -56,8 +56,8 @@ export const DIFFERENTIALS = [
     iconType: "user"
   },
   {
-    title: "Consultório em localização privilegiada",
-    description: "Atendimento em espaço tranquilo, arborizado e altamente reservado na região do Park Way, Brasília.",
+    title: "Sua Referência de Saúde no Park Way",
+    description: "Um refúgio de reabilitação e bem-estar projetado com foco no perfil exigente e nas famílias do Park Way. O verdadeiro padrão de consultório boutique pertinho de casa, unindo discrição absoluta, facilidade de acesso com estacionamento livre, ambiente arborizado e atendimento VIP sem trânsito.",
     iconType: "map"
   },
   {
@@ -82,8 +82,8 @@ export const FAQS = [
     answer: "As sessões têm duração média de 50 a 60 minutos de atenção exclusiva, variando conforme a necessidade clínica e a complexidade do paciente."
   },
   {
-    question: "Você atende bebês e crianças pequenas?",
-    answer: "Sim! Sou altamente especializada em fisioterapia respiratória pediátrica e fisioterapia ortopédica para bebês e crianças."
+    question: "Você atende todas as idades (de bebês a idosos)?",
+    answer: "Sim! Ofereço atendimento especializado para todas as fases da vida: bebês, crianças, adultos e idosos. Cada protocolo é desenvolvido de forma única e personalizada, respeitando o ritmo, as limitações articulares e a fisiologia individual de cada paciente."
   },
   {
     question: "Onde fica o consultório?",

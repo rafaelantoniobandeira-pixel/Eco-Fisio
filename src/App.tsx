@@ -431,7 +431,7 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-5 inline-block"
             >
-              Cuidado individualizado. Resultados que transformam.
+              Fisioterapia & Osteopatia Premium no Park Way
             </motion.span>
             
             <motion.h1 
@@ -447,9 +447,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-base md:text-lg text-brand-texto-suave font-light leading-relaxed mb-10 max-w-xl text-balance"
+              className="text-base md:text-lg text-brand-texto-suave font-light leading-relaxed mb-8 max-w-xl text-balance"
             >
-              Atendimento especializado para bebês, crianças e adultos. Sem pressa. Sem convênio. Com resultado focado integralmente na sua reabilitação e harmonia funcional.
+              Atendimento especializado de alto padrão para bebês, crianças, adultos e idosos. Sem pressa. Sem fila. Um plano de reabilitação personalizado focado integralmente na sua saúde e bem-estar.
             </motion.p>
             
             <motion.div 
@@ -462,16 +462,31 @@ const Hero = () => {
                 href={WHATSAPP_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-brand-verde hover:bg-brand-verde-escuro text-brand-branco text-center px-8 py-4 rounded-xl font-semibold tracking-wide shadow-md hover:shadow-xl transition-all duration-300"
+                className="group relative bg-brand-verde hover:bg-brand-verde-escuro text-brand-branco text-center px-8 py-4.5 rounded-xl font-semibold tracking-wide shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 text-base hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
-                Quero agendar uma consulta
+                <span>Agendar Consulta Particular</span>
+                <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </a>
               <a 
                 href="#servicos"
-                className="border border-brand-dourado text-brand-dourado hover:bg-brand-dourado hover:text-brand-branco text-center px-8 py-4 rounded-xl font-semibold tracking-wide transition-all duration-300"
+                className="border border-brand-dourado text-brand-dourado hover:bg-brand-dourado hover:text-brand-branco text-center px-8 py-4.5 rounded-xl font-medium tracking-wide transition-all duration-300 flex items-center justify-center text-base hover:scale-[1.02] active:scale-[0.98]"
               >
-                Conheça os serviços
+                Conhecer Especialidades
               </a>
+            </motion.div>
+
+            {/* Elegant subkey trust markers for improved CTA conversion */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.85 }}
+              transition={{ delay: 0.6 }}
+              className="mt-6 flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-2 text-xs text-brand-texto-suave font-light font-sans"
+            >
+              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Oferecemos Consultas de Até 1 Hora</span>
+              <span className="text-brand-dourado font-bold">•</span>
+              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Do Recém-Nascido à Terceira Idade</span>
+              <span className="text-brand-dourado font-bold">•</span>
+              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ O Consultório Boutique do Park Way</span>
             </motion.div>
           </div>
 
@@ -505,7 +520,7 @@ const Hero = () => {
                   {/* Elegant call-to-action divider at a strategic height */}
                   <div className="mt-3 pt-2.5 border-t border-brand-dourado/10 text-[11px] font-medium text-brand-verde tracking-wider uppercase font-sans flex items-center justify-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-verde animate-pulse shrink-0" />
-                    <span>Venha conhecer meu espaço</span>
+                    <span>Conheça nosso espaço no Park Way</span>
                   </div>
                 </div>
               </div>
@@ -743,10 +758,10 @@ const About = () => {
               
               <div className="font-sans text-brand-texto-suave space-y-6 text-base md:text-lg font-light leading-relaxed">
                 <p>
-                  Sou fisioterapeuta com formação em Osteopatia, apaixonada por oferecer um cuidado que vai além do sintoma. Atendo em Brasília, na região do Park Way, com foco em atendimento individualizado e de alto padrão — porque acredito que cada paciente merece tempo, atenção e um tratamento pensado especificamente para ele.
+                  Sou fisioterapeuta com formação em Osteopatia, dedicada a oferecer um cuidado humano de excelência no coração do Park Way. O meu consultório foi planejado especificamente para quem busca reabilitação de alto padrão com máxima discrição e absoluto silêncio, sem precisar enfrentar o trânsito de Brasília para se cuidar.
                 </p>
                 <p>
-                  Sem atropelos, cada consulta é uma imersão na sua saúde física e de sua família. Buscando atingir a verdadeira harmonia por meio de diagnóstico preciso e intervenção terapêutica refinada.
+                  Acredito que os moradores do Park Way prezam pela exclusividade e pela qualidade de vida de sua vizinhança. Por isso, ofereço um atendimento sem pressa e individualizado de verdade — seja para você, seus filhos ou seus pais —, integrando Fisioterapia e Osteopatia no quintal da sua casa.
                 </p>
               </div>
 
@@ -822,7 +837,12 @@ const FAQ = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ 
+                        height: { duration: 0.22, ease: [0.04, 0.62, 0.23, 0.98] },
+                        opacity: { duration: 0.15 }
+                      }}
+                      className="overflow-hidden"
+                      style={{ transformTemplate: ({ y }: { y: string }) => `translate3d(0, ${y}, 0)` }}
                     >
                       <div className="px-8 pb-6 text-brand-texto-suave text-sm md:text-base font-light font-sans leading-relaxed border-t border-brand-creme/50 pt-4">
                         {faq.answer}
@@ -853,30 +873,38 @@ const CTAFinal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-br from-brand-creme to-[#ece4d6] border border-brand-dourado/20 rounded-[3rem] p-12 md:p-20 shadow-xl"
+          className="bg-gradient-to-br from-brand-creme to-[#ece4d6] border border-brand-dourado/20 rounded-[3rem] p-10 md:p-20 shadow-xl"
         >
           <FadeInText>
             <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-verde-escuro mb-5 inline-block">
-              Atendimento de alta qualidade
+              Atendimento Particular Exclusivo
             </span>
           </FadeInText>
           
           <h2 className="font-display font-light text-4xl md:text-5xl lg:text-6xl text-brand-verde-escuro mb-8 text-balance">
-            <SplitText text="Pronta para cuidar de você." />
+            <SplitText text="Pronta para restaurar sua qualidade de vida?" />
           </h2>
           
-          <p className="text-brand-texto-suave font-light text-lg mb-12 max-w-xl mx-auto leading-relaxed text-balance">
-            Atendimento de segunda a sexta, das 8h às 18h. Consultório reservado com ampla tranquilidade na Região do Park Way, Brasília.
+          <p className="text-brand-texto-suave font-light text-lg mb-10 max-w-xl mx-auto leading-relaxed text-balance">
+            Cuidado integral de alto padrão para todas as idades, desenhado sob medida para quem vive ou trabalha no Park Way. Desfrute de sessões inteiramente focadas em você, no silêncio e na tranquilidade da região, sem o estresse e a pressa das grandes avenidas.
           </p>
           
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-brand-verde hover:bg-brand-verde-escuro text-white px-10 py-5 rounded-full font-semibold text-lg md:text-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+            className="group inline-flex items-center gap-3 bg-brand-verde hover:bg-brand-verde-escuro text-white px-10 py-5 rounded-full font-semibold text-lg md:text-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
           >
-            Falar no WhatsApp agora
+            <span>Agendar pelo WhatsApp</span>
+            <ArrowUpRight size={22} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
           </a>
+
+          {/* Quick trust reassurance footer inside CTA card */}
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 text-xs text-brand-texto-suave/80 font-sans">
+            <span className="flex items-center gap-1.5">&#9993; Resposta rápida de segunda a sexta, das 8h às 18h</span>
+            <span className="hidden md:inline text-brand-dourado font-bold">•</span>
+            <span className="flex items-center gap-1.5">&#10004; Consultório com estacionamento privativo e seguro</span>
+          </div>
         </motion.div>
       </div>
     </section>
