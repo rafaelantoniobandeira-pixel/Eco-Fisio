@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Menu, 
@@ -111,6 +111,172 @@ const DiffIcon = ({ type, className = "w-6 h-6 text-brand-dourado" }: { type: st
     default:
       return null;
   }
+};
+
+// --- Scroll and Text Animation Helper Components ---
+
+const CountUp = ({ 
+  end, 
+  duration = 1500, 
+  suffix = "", 
+  useLocale = false 
+}: { 
+  end: number; 
+  duration?: number; 
+  suffix?: string;
+  useLocale?: boolean;
+}) => {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement | null>(null);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [hasStarted, end, duration]);
+
+  return (
+    <span ref={elementRef} className="tabular-nums">
+      {useLocale ? count.toLocaleString('pt-BR') : count}
+      {suffix}
+    </span>
+  );
+};
+
+const SplitText = ({ text, className = "" }: { text: string; className?: string }) => {
+  const words = text.split(" ");
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05 }
+    }
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", damping: 14, stiffness: 100 }
+    }
+  };
+
+  return (
+    <motion.span
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-10%" }}
+      className={`inline-block ${className}`}
+    >
+      {words.map((word, i) => (
+        <span key={i} className="inline-block overflow-hidden mr-1.5 leading-none py-1">
+          <motion.span variants={childVariants} className="inline-block">
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </motion.span>
+  );
+};
+
+const FadeInText = ({ 
+  children, 
+  className = "", 
+  delay = 0, 
+  y = 25 
+}: { 
+  children: React.ReactNode; 
+  className?: string; 
+  delay?: number;
+  y?: number;
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+// --- Stats Section with Count Animations ---
+const ClinicStats = () => {
+  return (
+    <section className="bg-brand-creme/50 py-12 border-y border-brand-creme relative overflow-hidden bg-noise">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          
+          <div className="flex flex-col items-center">
+            <span className="font-display text-4xl md:text-5xl font-medium text-brand-verde-escuro mb-2">
+              <CountUp end={12} suffix="+" />
+            </span>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-sans font-bold text-brand-dourado">
+              Anos de Dedicação
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <span className="font-display text-4xl md:text-5xl font-medium text-brand-verde-escuro mb-2">
+              <CountUp end={5000} suffix="+" useLocale={true} />
+            </span>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-sans font-bold text-brand-dourado">
+              Consultas Realizadas
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <span className="font-display text-4xl md:text-5xl font-medium text-brand-verde-escuro mb-2">
+              <CountUp end={100} suffix="%" />
+            </span>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-sans font-bold text-brand-dourado">
+              Foco Individualizado
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <span className="font-display text-4xl md:text-5xl font-medium text-brand-verde-escuro mb-2">
+              <CountUp end={10} suffix="k+" />
+            </span>
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-sans font-bold text-brand-dourado">
+              Horas de Atendimento
+            </span>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  );
 };
 
 // --- Header Component ---
@@ -236,8 +402,24 @@ const Header = () => {
 
 // --- Hero Section ---
 const Hero = () => {
+  const [isImgExpanded, setIsImgExpanded] = useState(false);
+
+  useEffect(() => {
+    if (isImgExpanded) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
+  }, [isImgExpanded]);
+
   return (
-    <section id="inicio" className="relative pt-32 pb-24 md:pt-44 md:pb-36 bg-brand-creme bg-noise overflow-hidden">
+    <section id="inicio" className="relative pt-32 pb-24 md:pt-44 md:pb-36 bg-hero-gradient bg-noise overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -299,7 +481,9 @@ const Hero = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative w-full max-w-[420px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gradient-to-tr from-brand-verde-escuro/30 to-brand-dourado/30 p-[1px]"
+              className="relative w-full max-w-[420px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gradient-to-tr from-brand-verde-escuro/30 to-brand-dourado/30 p-[1px] cursor-pointer"
+              onClick={() => setIsImgExpanded(true)}
+              whileTap={{ scale: 0.98 }}
             >
               <div className="w-full h-full bg-brand-creme rounded-[2.5rem] overflow-hidden relative group">
                 <img 
@@ -310,13 +494,19 @@ const Hero = () => {
                 />
                 
                 {/* Floating minimal glass card */}
-                <div className="absolute bottom-6 left-6 right-6 bg-brand-branco/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/30 shadow-lg text-center">
+                <div className="absolute bottom-6 left-6 right-6 bg-brand-branco/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/30 shadow-lg text-center transition-all duration-300 group-hover:bg-brand-branco/90">
                   <h3 className="font-display text-lg font-medium text-brand-verde-escuro tracking-wide">
                     Dra. Daiane Palhano
                   </h3>
-                  <p className="text-[10px] text-brand-dourado uppercase tracking-[0.2em] font-semibold mt-1">
+                  <p className="text-[10px] text-brand-dourado uppercase tracking-[0.2em] font-semibold mt-0.5">
                     Fisioterapeuta & Osteopata
                   </p>
+                  
+                  {/* Elegant call-to-action divider at a strategic height */}
+                  <div className="mt-3 pt-2.5 border-t border-brand-dourado/10 text-[11px] font-medium text-brand-verde tracking-wider uppercase font-sans flex items-center justify-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-verde animate-pulse shrink-0" />
+                    <span>Venha conhecer meu espaço</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -324,6 +514,58 @@ const Hero = () => {
 
         </div>
       </div>
+
+      {/* Immersive space detail viewer */}
+      <AnimatePresence>
+        {isImgExpanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100000] bg-brand-branco/98 backdrop-blur-2xl flex flex-col items-center justify-center p-6 md:p-12 select-none"
+          >
+            <div className="max-w-4xl w-full flex flex-col items-center justify-center gap-6">
+              <motion.div 
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="relative w-full aspect-[4/5] max-h-[70vh] rounded-[2rem] overflow-hidden shadow-2xl border border-brand-dourado/20 bg-brand-creme"
+              >
+                <img 
+                  src="https://res.cloudinary.com/dxpwgum9x/image/upload/v1780159780/main-sample.jpg" 
+                  alt="Consultório Dra. Daiane Palhano" 
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+
+              <div className="text-center px-4 max-w-lg">
+                <h3 className="font-display text-xl text-brand-verde-escuro font-light tracking-wide">
+                  Consultório Daiane Palhano
+                </h3>
+                <p className="text-sm font-sans font-light text-brand-texto-suave mt-2 leading-relaxed">
+                  Um espaço acolhedor e de alto padrão planejado exclusivamente para oferecer o máximo de conforto, privacidade e foco integral ao seu tratamento.
+                </p>
+              </div>
+
+              {/* Practical close button */}
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsImgExpanded(false);
+                }}
+                className="bg-brand-verde hover:bg-brand-verde-escuro text-brand-branco px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 cursor-pointer focus:outline-none"
+              >
+                <X size={15} /> Fechar Visualização
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
@@ -335,13 +577,15 @@ const Services = () => {
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Heading */}
         <div className="max-w-2xl mx-auto text-center mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-3 inline-block">
-            Especialidades
-          </span>
+          <FadeInText>
+            <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-3 inline-block">
+              Especialidades
+            </span>
+          </FadeInText>
           <h2 className="font-display font-light text-3xl md:text-5xl text-brand-verde-escuro mb-5">
-            Cada atendimento é pensado para você — individualmente.
+            <SplitText text="Cada atendimento é pensado para você — individualmente." />
           </h2>
-          <div className="w-12 h-[1px] bg-brand-dourado mx-auto" />
+          <div className="w-12 h-[1px] bg-brand-dourado mx-auto mt-4" />
         </div>
 
         {/* Services Grid */}
@@ -388,11 +632,13 @@ const Differentials = () => {
         
         {/* Section Heading */}
         <div className="max-w-xl mb-16 text-left">
-          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-brand-dourado-claro mb-3 inline-block">
-            Por que escolher a Daiane Palhano?
-          </span>
+          <FadeInText>
+            <span className="text-xs uppercase tracking-[0.25em] font-semibold text-brand-dourado-claro mb-3 inline-block">
+              Por que escolher a Daiane Palhano?
+            </span>
+          </FadeInText>
           <h2 className="font-display font-light text-3xl md:text-5xl tracking-wide leading-tight text-white">
-            Excelência no toque, precisão e acolhimento humano.
+            <SplitText text="Excelência no toque, precisão e acolhimento humano." />
           </h2>
         </div>
 
@@ -486,11 +732,13 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-3 inline-block">
-                Sobre a Daiane
-              </span>
+              <FadeInText>
+                <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-3 inline-block">
+                  Sobre a Daiane
+                </span>
+              </FadeInText>
               <h2 className="font-display font-light text-3xl md:text-5xl text-brand-verde-escuro mb-8">
-                Cuidado que vai além do sintoma.
+                <SplitText text="Cuidado que vai além do sintoma." />
               </h2>
               
               <div className="font-sans text-brand-texto-suave space-y-6 text-base md:text-lg font-light leading-relaxed">
@@ -535,11 +783,13 @@ const FAQ = () => {
         
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-3 inline-block">
-            Suas Dúvidas
-          </span>
+          <FadeInText>
+            <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-3 inline-block">
+              Suas Dúvidas
+            </span>
+          </FadeInText>
           <h2 className="font-display font-light text-3xl md:text-5xl text-brand-verde-escuro">
-            Perguntas Frequentes
+            <SplitText text="Perguntas Frequentes" />
           </h2>
           <div className="w-12 h-[1px] bg-brand-dourado mx-auto mt-5" />
         </div>
@@ -605,12 +855,14 @@ const CTAFinal = () => {
           transition={{ duration: 0.8 }}
           className="bg-gradient-to-br from-brand-creme to-[#ece4d6] border border-brand-dourado/20 rounded-[3rem] p-12 md:p-20 shadow-xl"
         >
-          <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-verde-escuro mb-5 inline-block">
-            Atendimento de alta qualidade
-          </span>
+          <FadeInText>
+            <span className="text-xs uppercase tracking-[0.25em] font-bold text-brand-verde-escuro mb-5 inline-block">
+              Atendimento de alta qualidade
+            </span>
+          </FadeInText>
           
           <h2 className="font-display font-light text-4xl md:text-5xl lg:text-6xl text-brand-verde-escuro mb-8 text-balance">
-            Pronta para cuidar de você.
+            <SplitText text="Pronta para cuidar de você." />
           </h2>
           
           <p className="text-brand-texto-suave font-light text-lg mb-12 max-w-xl mx-auto leading-relaxed text-balance">
@@ -734,7 +986,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-brand-creme/60">
-            &copy; 2025 Daiane Palhano Fisioterapia. Todos os direitos reservados.
+            &copy; 2026 Daiane Palhano Fisioterapia. Todos os direitos reservados.
           </p>
           <div className="flex gap-1.5 items-center text-[10px] text-brand-creme/40 uppercase tracking-[0.1em]">
             <Lock size={10} /> Consultório Particular de Alto Padrão
@@ -770,20 +1022,139 @@ const FloatingWhatsApp = () => {
 
 // --- Main App Entry ---
 export default function App() {
+  const [isIntroActive, setIsIntroActive] = useState(true);
+
+  useEffect(() => {
+    if (isIntroActive) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100lvh';
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+    }
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+    };
+  }, [isIntroActive]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsIntroActive(false);
+    }, 3200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen font-sans bg-brand-branco text-brand-texto antialiased selection:bg-brand-verde/20 selection:text-brand-verde-escuro">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <Differentials />
-        <About />
-        <Gallery />
-        <FAQ />
-        <CTAFinal />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </div>
+    <>
+      <AnimatePresence mode="wait">
+        {isIntroActive && (
+          <motion.div
+            key="preloader"
+            initial={{ opacity: 1 }}
+            exit={{ 
+              opacity: 0, 
+              y: "-100%",
+              transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
+            }}
+            className="fixed top-0 left-0 w-screen h-screen min-h-[100dvh] bg-brand-verde-escuro z-[99999] flex flex-col items-center justify-center p-6 select-none bg-noise"
+          >
+            <div className="max-w-md w-full flex flex-col items-center text-center">
+              
+              {/* Logo with premium entry fade/scale */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ 
+                  duration: 1.2, 
+                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.2
+                }}
+                className="w-40 h-40 md:w-48 md:h-48 flex items-center justify-center mb-6 relative"
+              >
+                {/* Decorative border frame with gentle pulse */}
+                <span className="absolute inset-0 rounded-full border border-brand-dourado/20 animate-pulse" />
+                <img 
+                  src="https://res.cloudinary.com/dxpwgum9x/image/upload/v1780187339/cld-sample-5.png" 
+                  alt="Dra. Daiane Palhano" 
+                  className="w-full h-full object-contain filter drop-shadow-[0_8px_24px_rgba(212,169,106,0.15)]"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+
+              {/* Central Welcoming greeting statement */}
+              <div className="overflow-hidden mb-2">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+                  className="font-display font-light text-3xl md:text-4xl text-brand-creme tracking-[0.08em] uppercase text-center"
+                >
+                  Seja bem vindo
+                </motion.h1>
+              </div>
+
+              {/* Minimal Divider */}
+              <motion.div 
+                initial={{ width: 0, opacity: 0 }}
+                animate={{ width: "80px", opacity: 0.4 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="h-[1px] bg-brand-dourado-claro my-4"
+              />
+
+              {/* Subheading Titles */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.9 }}
+                transition={{ duration: 1, delay: 1.4 }}
+                className="text-xs tracking-[0.25em] font-sans font-bold text-brand-dourado-claro uppercase leading-relaxed"
+              >
+                Dra. Daiane Palhano
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.6 }}
+                transition={{ duration: 1, delay: 1.6 }}
+                className="text-[9px] tracking-[0.2em] font-sans font-semibold text-brand-creme uppercase mt-1"
+              >
+                Fisioterapia & Osteopatia Clínica de Alto Padrão
+              </motion.p>
+
+              {/* Entering Skip Button */}
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.0, duration: 0.6 }}
+                onClick={() => setIsIntroActive(false)}
+                className="mt-12 scale-95 hover:scale-100 bg-transparent border border-brand-dourado-claro/30 hover:border-brand-dourado-claro text-brand-creme hover:text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all cursor-pointer shadow-sm hover:shadow-md focus:outline-none"
+              >
+                Entrar no Espaço
+              </motion.button>
+              
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="min-h-screen font-sans bg-brand-branco text-brand-texto antialiased selection:bg-brand-verde/20 selection:text-brand-verde-escuro">
+        <Header />
+        <main>
+          <Hero />
+          <ClinicStats />
+          <Services />
+          <Differentials />
+          <About />
+          <Gallery />
+          <FAQ />
+          <CTAFinal />
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
+    </>
   );
 }

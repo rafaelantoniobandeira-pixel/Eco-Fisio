@@ -62,10 +62,6 @@ export default function Gallery() {
       {/* Modern Infinite Horizontal Marquee Roller */}
       <div className="relative w-full flex overflow-x-hidden py-4 select-none">
         
-        {/* Soft elegant shadow overlay effects on both ends of the screen */}
-        <div className="absolute top-0 bottom-0 left-0 w-20 md:w-40 bg-gradient-to-r from-brand-branco via-brand-branco/70 to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-20 md:w-40 bg-gradient-to-l from-brand-branco via-brand-branco/70 to-transparent z-10 pointer-events-none" />
-
         {/* Rolling Track */}
         <div className="flex gap-6 shrink-0 animate-marquee hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
           {MARQUEE_ITEMS.map((item, idx) => (
