@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export const WHATSAPP_LINK = "https://wa.me/556191948879?text=Ol%C3%A1%2C%20Daiane!%20Gostaria%20de%20agendar%20uma%20consulta.";
-export const WHATSAPP_TEXT = "(61) 9194-8879";
+export const WHATSAPP_LINK = "https://wa.me/556140426884?text=Ol%C3%A1%2C%20Daiane!%20Gostaria%20de%20agendar%20uma%20consulta.";
+export const WHATSAPP_TEXT = "(61) 4042-6884";
 export const INSTAGRAM_LINK = "https://instagram.com/fisiodaipalhano";
 export const INSTAGRAM_TEXT = "@fisiodaipalhano";
 export const CLINIC_LOCATION = "Região do Park Way, Brasília – DF";
@@ -57,7 +57,7 @@ export const DIFFERENTIALS = [
   },
   {
     title: "Sua Referência de Saúde no Park Way",
-    description: "Um refúgio de reabilitação e bem-estar projetado com foco no perfil exigente e nas famílias do Park Way. O verdadeiro padrão de consultório boutique pertinho de casa, unindo discrição absoluta, facilidade de acesso com estacionamento livre, ambiente arborizado e atendimento VIP sem trânsito.",
+    description: "Um espaço exclusivo de reabilitação e bem-estar projetado com foco no perfil exigente e nas famílias do Park Way. O verdadeiro padrão de consultório boutique pertinho de casa, unindo discrição absoluta, facilidade de acesso com estacionamento livre, ambiente arborizado e atendimento VIP sem trânsito.",
     iconType: "map"
   },
   {
@@ -75,7 +75,7 @@ export const DIFFERENTIALS = [
 export const FAQS = [
   {
     question: "Você atende convênios?",
-    answer: "Não. O atendimento é estritamente particular, o que me permite oferecer sessões de alto padrão, totalmente individualizadas, sem limitações de tempo ou limites de protocolo rígidos impostos por operadoras."
+    answer: "Não. O atendimento é estritamente particular, o que me permite oferecer sessões de excelência, totalmente individualizadas, sem limitações de tempo ou limites de protocolo rígidos impostos por operadoras."
   },
   {
     question: "Qual a duração de cada sessão?",
@@ -87,7 +87,7 @@ export const FAQS = [
   },
   {
     question: "Onde fica o consultório?",
-    answer: "O atendimento de alto padrão é realizado em espaço privado e extremamente tranquilo na região do Park Way, Brasília – DF. O endereço completo é informado após o agendamento."
+    answer: "O atendimento personalizado é realizado em espaço privado e extremamente tranquilo na região do Park Way, Brasília – DF. O endereço completo é informado após o agendamento."
   },
   {
     question: "Como faço para agendar?",

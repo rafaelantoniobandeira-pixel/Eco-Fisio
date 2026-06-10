@@ -54,7 +54,7 @@ export default function Gallery() {
             <div className="w-12 h-[1px] bg-brand-dourado mt-5 hidden md:block" />
           </div>
           <p className="text-brand-texto-suave text-sm md:text-base font-light max-w-xl md:mb-1 leading-relaxed">
-            Veja como realizo cada um dos meus atendimentos terapêuticos. Um consultório privativo focado em entregar silêncio, atenção individual de alto padrão e extremo acolhimento.
+            Veja como realizo cada um dos meus atendimentos terapêuticos. Um consultório privativo focado em entregar silêncio, atenção individualizada e extremo acolhimento.
           </p>
         </div>
       </div>

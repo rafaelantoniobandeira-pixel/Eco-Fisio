@@ -1,6 +1,6 @@
 {
-  "name": "Ecofisio - Pilates e Fisioterapia",
-  "description": "Site institucional premium para o Studio Ecofisio em Valparaíso de Goiás. Especializado em fisioterapia, pilates clínico e reabilitação.",
+  "name": "Dra. Daiane Palhano - Fisioterapia e Osteopatia",
+  "description": "Site institucional para Dra. Daiane Palhano, especialista em fisioterapia e osteopatia na região do Park Way, Brasília.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

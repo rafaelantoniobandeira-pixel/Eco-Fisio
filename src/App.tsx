@@ -431,7 +431,7 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-5 inline-block"
             >
-              Fisioterapia & Osteopatia Premium no Park Way
+              Fisioterapia & Osteopatia Exclusiva no Park Way
             </motion.span>
             
             <motion.h1 
@@ -449,20 +449,20 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-base md:text-lg text-brand-texto-suave font-light leading-relaxed mb-8 max-w-xl text-balance"
             >
-              Atendimento especializado de alto padrão para bebês, crianças, adultos e idosos. Sem pressa. Sem fila. Um plano de reabilitação personalizado focado integralmente na sua saúde e bem-estar.
+              Atendimento especializado e personalizado para bebês, crianças, adultos e idosos. Sem pressa. Sem fila. Um plano de reabilitação personalizado focado integralmente na sua saúde e bem-estar.
             </motion.p>
             
             <motion.div 
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.45 }}
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full sm:w-auto"
             >
               <a 
                 href={WHATSAPP_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group relative bg-brand-verde hover:bg-brand-verde-escuro text-brand-branco text-center px-8 py-4.5 rounded-xl font-semibold tracking-wide shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 text-base hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="group relative bg-[#25d366] hover:bg-[#20ba5a] text-brand-branco text-center px-8 py-4.5 rounded-xl font-semibold tracking-wide shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 text-base hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
                 <span>Agendar Consulta Particular</span>
                 <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -474,7 +474,7 @@ const Hero = () => {
                 Conhecer Especialidades
               </a>
             </motion.div>
-
+ 
             {/* Elegant subkey trust markers for improved CTA conversion */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -484,7 +484,7 @@ const Hero = () => {
             >
               <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Oferecemos Consultas de Até 1 Hora</span>
               <span className="text-brand-dourado font-bold">•</span>
-              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Do Recém-Nascido à Terceira Idade</span>
+              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Do Recém-Nascido ao Idoso</span>
               <span className="text-brand-dourado font-bold">•</span>
               <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ O Consultório Boutique do Park Way</span>
             </motion.div>
@@ -560,7 +560,7 @@ const Hero = () => {
                   Consultório Daiane Palhano
                 </h3>
                 <p className="text-sm font-sans font-light text-brand-texto-suave mt-2 leading-relaxed">
-                  Um espaço acolhedor e de alto padrão planejado exclusivamente para oferecer o máximo de conforto, privacidade e foco integral ao seu tratamento.
+                  Um espaço acolhedor e de excelência planejado exclusivamente para oferecer o máximo de conforto, privacidade e foco integral ao seu tratamento.
                 </p>
               </div>
 
@@ -732,7 +732,7 @@ const About = () => {
                     Daiane Palhano
                   </p>
                   <p className="text-xs text-brand-creme/90 mt-1 font-light">
-                    Osteopatia & Saúde Integrativa de Alto Padrão
+                    Osteopatia & Saúde Integrativa de Excelência
                   </p>
                 </div>
               </div>
@@ -758,7 +758,7 @@ const About = () => {
               
               <div className="font-sans text-brand-texto-suave space-y-6 text-base md:text-lg font-light leading-relaxed">
                 <p>
-                  Sou fisioterapeuta com formação em Osteopatia, dedicada a oferecer um cuidado humano de excelência no coração do Park Way. O meu consultório foi planejado especificamente para quem busca reabilitação de alto padrão com máxima discrição e absoluto silêncio, sem precisar enfrentar o trânsito de Brasília para se cuidar.
+                  Sou fisioterapeuta com formação em Osteopatia, dedicada a oferecer um cuidado humano de excelência no coração do Park Way. O meu consultório foi planejado especificamente para quem busca reabilitação de excelência com máxima discrição e absoluto silêncio, sem precisar enfrentar o trânsito de Brasília para se cuidar.
                 </p>
                 <p>
                   Acredito que os moradores do Park Way prezam pela exclusividade e pela qualidade de vida de sua vizinhança. Por isso, ofereço um atendimento sem pressa e individualizado de verdade — seja para você, seus filhos ou seus pais —, integrando Fisioterapia e Osteopatia no quintal da sua casa.
@@ -886,7 +886,7 @@ const CTAFinal = () => {
           </h2>
           
           <p className="text-brand-texto-suave font-light text-lg mb-10 max-w-xl mx-auto leading-relaxed text-balance">
-            Cuidado integral de alto padrão para todas as idades, desenhado sob medida para quem vive ou trabalha no Park Way. Desfrute de sessões inteiramente focadas em você, no silêncio e na tranquilidade da região, sem o estresse e a pressa das grandes avenidas.
+            Cuidado integral e exclusivo para todas as idades, desenhado sob medida para quem vive ou trabalha no Park Way. Desfrute de sessões inteiramente focadas em você, no silêncio e na tranquilidade da região, sem o estresse e a pressa das grandes avenidas.
           </p>
           
           <a
@@ -938,7 +938,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-brand-creme/70 text-sm font-light leading-relaxed max-w-md">
-              Oferecendo um toque acolhedor de alto padrão, sem convênios e inteiramente focado na recuperação real e fisiologia sistêmica de cada etapa da sua vida.
+              Oferecendo um toque acolhedor e de excelência, sem convênios e inteiramente focado na recuperação real e fisiologia sistêmica de cada etapa da sua vida.
             </p>
           </div>
 
@@ -1017,7 +1017,7 @@ const Footer = () => {
             &copy; 2026 Daiane Palhano Fisioterapia. Todos os direitos reservados.
           </p>
           <div className="flex gap-1.5 items-center text-[10px] text-brand-creme/40 uppercase tracking-[0.1em]">
-            <Lock size={10} /> Consultório Particular de Alto Padrão
+            <Lock size={10} /> Consultório Particular Exclusivo
           </div>
         </div>
       </div>
@@ -1092,7 +1092,7 @@ export default function App() {
           >
             <div className="max-w-md w-full flex flex-col items-center text-center">
               
-              {/* Logo with premium entry fade/scale */}
+              {/* Logo with entry fade/scale */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -1149,7 +1149,7 @@ export default function App() {
                 transition={{ duration: 1, delay: 1.6 }}
                 className="text-[9px] tracking-[0.2em] font-sans font-semibold text-brand-creme uppercase mt-1"
               >
-                Fisioterapia & Osteopatia Clínica de Alto Padrão
+                Fisioterapia & Osteopatia Clínica de Excelência
               </motion.p>
 
               {/* Entering Skip Button */}
