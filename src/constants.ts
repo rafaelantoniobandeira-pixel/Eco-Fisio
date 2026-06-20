@@ -7,15 +7,14 @@ export const WHATSAPP_LINK = "https://wa.me/556140426884?text=Ol%C3%A1%2C%20Daia
 export const WHATSAPP_TEXT = "(61) 4042-6884";
 export const INSTAGRAM_LINK = "https://instagram.com/fisiodaipalhano";
 export const INSTAGRAM_TEXT = "@fisiodaipalhano";
-export const CLINIC_LOCATION = "Brasília – DF";
+export const CLINIC_LOCATION = "Park Way, Brasília – DF";
 export const CLINIC_HOURS = "Segunda a sexta, das 08h às 18h";
 
 export const SERVICES = [
   {
     id: "fisioterapia-respiratoria-infantil",
-    title: "Fisioterapia Respiratória Infantil (Bronquiolite)",
-    description: "Para bebês e crianças com dificuldades respiratórias, bronquiolite, bronquite, asma e síndromes.",
-    iconType: "lungs-infant"
+    title: "Fisioterapia Respiratória Infantil",
+    description: "Atendimento especializado e delicado para bebês e crianças envolvidas no tratamento de bronquiolite, pneumonia, asma, infecções respiratórias recorrentes, retenção de secreções, prematuridade e doenças neuromusculares."
   },
   {
     id: "fisioterapia-ortopedica-infantil",
@@ -32,26 +31,25 @@ export const SERVICES = [
   {
     id: "fisioterapia-ortopedica-adultos",
     title: "Fisioterapia Ortopédica (Adultos e Idosos)",
-    description: "Reabilitação de lesões, pós-cirúrgico, artrose, osteoporose, dores na coluna e fortalecimento para o idoso.",
+    description: "Foco na reabilitação e alívio de dores na coluna (cervical, torácica e lombar), hérnia de disco, artrose e artrite, além de lesões musculares, ligamentares e tendíneas. Tratamento especializado para dores no ombro, quadril, joelho, tornozelo e pé, acompanhamento pós-operatório ortopédico, correção de alterações posturais, melhora da limitação de movimentos e perda de funcionalidade, com foco também na prevenção de quedas e treinamento de equilíbrio em idosos.",
     iconType: "joint"
   },
   {
     id: "fisioterapia-oncologica",
     title: "Fisioterapia Oncológica",
-    description: "Atendimento especializado e humanizado para pacientes oncológicos, auxiliando na reabilitação física, controle de linfedema e bem-estar em todas as etapas.",
+    description: "Atendimento especializado e humanizado direcionado ao alívio de dores relacionadas ao tratamento ou à própria doença, fadiga oncológica, prevenção e controle do linfedema. Atuação na melhora de limitações de movimentos, recuperação de força muscular e condicionamento físico, tratamento de neuropatia periférica induzida pela quimioterapia, alterações respiratórias, pós-operatório, reabilitação de fibroses e cicatrizes, além de suporte dedicado em cuidados paliativos.",
     iconType: "heart"
   },
   {
     id: "osteopatia",
     title: "Atendimento com Osteopatia",
-    description: "Abordagem global e terapêutica manual para disfunções do sistema musculoesquelético, visceral e craniano em todas as idades.",
+    description: "Abordagem global e terapia manual para disfunções do sistema musculoesquelético, visceral e craniano em todas as idades.",
     iconType: "hands"
   },
   {
     id: "fisioterapia-respiratoria-adultos",
     title: "Fisioterapia Respiratória (Adultos e Idosos)",
-    description: "Para doenças respiratórias crônicas (DPOC, asma), pós-COVID e reabilitação pulmonar.",
-    iconType: "lungs"
+    description: "Para doenças respiratórias crônicas (DPOC, asma), pós-COVID e reabilitação pulmonar."
   }
 ];
 
@@ -84,8 +82,8 @@ export const FAQS = [
     answer: "Não. O atendimento é estritamente particular, o que me permite oferecer sessões de excelência, totalmente individualizadas, sem limitações de tempo ou limites de protocolo rígidos impostos por operadoras."
   },
   {
-    question: "Qual a duração de cada sessão?",
-    answer: "As sessões têm duração média de 50 a 60 minutos de atenção exclusiva, variando conforme a necessidade clínica e a complexidade do paciente."
+    question: "Qual a duração de cada consulta?",
+    answer: "O tempo de cada consulta não é fixo; ele é flexível e definido inteiramente de acordo com a necessidade clínica e complexidade apresentada por cada paciente a cada sessão."
   },
   {
     question: "Você atende todas as idades (de bebês a idosos)?",
@@ -93,7 +91,7 @@ export const FAQS = [
   },
   {
     question: "Onde fica o consultório?",
-    answer: "O consultório está localizado em Brasília - DF, em um ambiente reservado e extremamente tranquilo para garantir o seu conforto e privacidade. O endereço exato é informado de forma personalizada e direta pela profissional após o agendamento da sua consulta."
+    answer: "O consultório está localizado na Região do Park Way, Brasília - DF (próximo ao aeroporto), em um ambiente reservado, arborizado e extremamente tranquilo para garantir o seu conforto e privacidade. O endereço exato e detalhes de acesso são informados diretamente após o agendamento da sua consulta."
   },
   {
     question: "Como faço para agendar?",

@@ -471,7 +471,7 @@ const Hero = () => {
                 href={WHATSAPP_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group relative bg-[#25d366] hover:bg-[#20ba5a] text-brand-branco text-center px-8 py-4.5 rounded-xl font-semibold tracking-wide shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 text-base hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="group relative bg-brand-verde hover:bg-brand-verde-escuro text-brand-branco text-center px-8 py-4.5 rounded-xl font-semibold tracking-wide shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 text-base hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
                 <span>Agendar Consulta Particular</span>
                 <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -491,11 +491,11 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
               className="mt-6 flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-2 text-xs text-brand-texto-suave font-light font-sans"
             >
-              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Oferecemos Consultas de Até 1 Hora</span>
+              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Duração de consulta conforme a sua necessidade</span>
               <span className="text-brand-dourado font-bold">•</span>
               <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Do Recém-Nascido ao Idoso</span>
               <span className="text-brand-dourado font-bold">•</span>
-              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Consultório Particular e Privativo em Brasília</span>
+              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Consultório Particular e Privativo no Park Way</span>
             </motion.div>
           </div>
 
@@ -529,7 +529,7 @@ const Hero = () => {
                   {/* Elegant call-to-action divider at a strategic height */}
                   <div className="mt-3 pt-2.5 border-t border-brand-dourado/10 text-[11px] font-medium text-brand-verde tracking-wider uppercase font-sans flex items-center justify-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-verde animate-pulse shrink-0" />
-                    <span>Conheça nosso espaço em Brasília</span>
+                    <span>Conheça nosso espaço no Park Way</span>
                   </div>
                 </div>
               </div>
@@ -629,9 +629,11 @@ const Services = () => {
             >
               <div>
                 {/* SVG Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-brand-creme flex items-center justify-center text-brand-verde mb-8 group-hover:bg-brand-verde group-hover:text-brand-branco transition-all duration-300">
-                  <ServiceIcon type={srv.iconType} />
-                </div>
+                {srv.iconType && (
+                  <div className="w-14 h-14 rounded-2xl bg-brand-creme flex items-center justify-center text-brand-verde mb-8 group-hover:bg-brand-verde group-hover:text-brand-branco transition-all duration-300">
+                    <ServiceIcon type={srv.iconType} />
+                  </div>
+                )}
                 <h3 className="font-display text-xl font-medium text-brand-verde-escuro mb-4">
                   {srv.title}
                 </h3>
@@ -771,10 +773,10 @@ const About = () => {
               
               <div className="font-sans text-brand-texto-suave space-y-6 text-base md:text-lg font-light leading-relaxed">
                 <p>
-                  Sou fisioterapeuta com formação em Osteopatia, dedicada a oferecer um cuidado humano de excelência em Brasília. O meu consultório foi planejado especificamente para quem busca reabilitação de excelência com máxima discrição e absoluto silêncio, priorizando um atendimento resolutivo e individualizado.
+                  Sou fisioterapeuta e pós-graduanda em Osteopatia, dedicada a oferecer um cuidado humano de excelência em Brasília. O meu consultório foi planejado especificamente para quem busca reabilitação de excelência com máxima discrição e absoluto silêncio, priorizando um atendimento resolutivo e individualizado.
                 </p>
                 <p>
-                  Ofereço um atendimento sem pressa e focado de verdade no paciente — seja para bebês, crianças, adultos ou idosos —, integrando técnicas de Fisioterapia e práticas de Osteopatia com total facilidade, conforto e comodidade.
+                  Ofereço um atendimento sem pressa e focado de verdade no paciente — seja para bebês, crianças, adultos ou idosos —, integrando técnicas de Fisioterapia e práticas de Osteopatia com total facilidade, conforto e comodidade. Procuro compreender a história de cada paciente e integrá-la ao processo terapêutico, para que o tratamento seja mais preciso, individualizado e eficaz, favorecendo melhores resultados.
                 </p>
               </div>
 
@@ -806,7 +808,7 @@ const About = () => {
                     </span>
                     <p className="font-sans font-bold text-brand-verde-escuro text-sm">Pós-Graduação em Fisioterapia em Oncologia</p>
                     <p className="text-xs text-brand-texto-suave font-light mt-1">
-                      Suporte integral para pacientes oncológicos, atuando na reabilitação física, controle do linfedema (linfoterapia) e promoção da qualidade de vida em todas as etapas de cuidado.
+                      Suporte integral para pacientes oncológicos, atuando na reabilitação física e promoção da qualidade de vida em todas as etapas de cuidado.
                     </p>
                   </div>
 
@@ -821,7 +823,7 @@ const About = () => {
                   <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
                     <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Cursos Complementares</span>
                     <p className="font-sans font-medium text-brand-verde-escuro text-sm">Método RTA e Terapia Manual</p>
-                    <p className="text-xs text-brand-texto-suave font-light mt-1">Reequilíbrio Toracoabdominal, Linfoterapia, cuidados paliativos, reabilitação ortopédica e respiratória.</p>
+                    <p className="text-xs text-brand-texto-suave font-light mt-1">Reequilíbrio Toracoabdominal, cuidados paliativos, reabilitação ortopédica e respiratória.</p>
                   </div>
                 </div>
               </div>
@@ -947,7 +949,7 @@ const CTAFinal = () => {
           </h2>
           
           <p className="text-brand-texto-suave font-light text-lg mb-10 max-w-xl mx-auto leading-relaxed text-balance">
-            Cuidado integral e exclusivo para todas as idades, desenhado sob medida para quem vive ou trabalha em Brasília. Desfrute de sessões inteiramente focadas em você, com o máximo de privacidade, no silêncio e na tranquilidade de um ambiente planejado, sem estresse ou pressa.
+            Cuidado integral e exclusivo para todas as idades, desenhado sob medida para quem vive ou trabalha no Park Way, Brasília. Desfrute de sessões inteiramente focadas em você, com o máximo de privacidade, no silêncio e na tranquilidade de um ambiente planejado, sem estresse ou pressa.
           </p>
           
           <a
@@ -1057,7 +1059,10 @@ const Footer = () => {
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                 </span>
-                <span>{CLINIC_LOCATION}</span>
+                <div className="flex flex-col">
+                  <span>{CLINIC_LOCATION}</span>
+                  <span className="text-[11px] text-brand-creme/60 font-light mt-0.5">Região do Park Way (próximo ao aeroporto)</span>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-5 h-5 flex items-center justify-center text-brand-dourado-claro shrink-0 mt-0.5">
@@ -1213,16 +1218,7 @@ export default function App() {
                 Fisioterapia & Osteopatia Clínica de Excelência
               </motion.p>
 
-              {/* Entering Skip Button */}
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.0, duration: 0.6 }}
-                onClick={() => setIsIntroActive(false)}
-                className="mt-12 scale-95 hover:scale-100 bg-transparent border border-brand-dourado-claro/30 hover:border-brand-dourado-claro text-brand-creme hover:text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all cursor-pointer shadow-sm hover:shadow-md focus:outline-none"
-              >
-                Entrar no Espaço
-              </motion.button>
+
               
             </div>
           </motion.div>
