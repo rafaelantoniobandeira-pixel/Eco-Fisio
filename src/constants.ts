@@ -65,11 +65,6 @@ export const DIFFERENTIALS = [
     iconType: "map"
   },
   {
-    title: "Especialidade em bebês e crianças",
-    description: "Cuidado especializado, lúdico e sensível para as fases mais importantes do desenvolvimento infantil.",
-    iconType: "baby"
-  },
-  {
     title: "Abordagem integrativa",
     description: "Práticas de Fisioterapia e Osteopatia aliadas para tratar a causa primária do problema, buscando uma recuperação duradoura.",
     iconType: "sparkles"
