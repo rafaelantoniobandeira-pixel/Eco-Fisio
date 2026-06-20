@@ -13,7 +13,10 @@ import {
   Instagram, 
   CheckCircle2,
   Lock,
-  ArrowUpRight
+  ArrowUpRight,
+  GraduationCap,
+  Award,
+  BookOpen
 } from 'lucide-react';
 import { 
   SERVICES, 
@@ -72,6 +75,12 @@ const ServiceIcon = ({ type, className = "w-7 h-7" }: { type: string, className?
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v13m-2-9a3 3 0 0 0-3-3H5a3 3 0 0 0-3 3v4a5 5 0 0 0 5 5h3m2-9a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v4a5 5 0 0 1-5 5h-3" />
+        </svg>
+      );
+    case 'heart':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
         </svg>
       );
     default:
@@ -431,7 +440,7 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="text-xs uppercase tracking-[0.25em] font-bold text-brand-dourado mb-5 inline-block"
             >
-              Fisioterapia & Osteopatia Exclusiva no Park Way
+              Fisioterapia & Atendimento em Osteopatia em Brasília
             </motion.span>
             
             <motion.h1 
@@ -486,7 +495,7 @@ const Hero = () => {
               <span className="text-brand-dourado font-bold">•</span>
               <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Do Recém-Nascido ao Idoso</span>
               <span className="text-brand-dourado font-bold">•</span>
-              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ O Consultório Boutique do Park Way</span>
+              <span className="flex items-center gap-1.5 font-medium text-brand-verde-escuro">✓ Consultório Particular e Privativo em Brasília</span>
             </motion.div>
           </div>
 
@@ -514,13 +523,13 @@ const Hero = () => {
                     Dra. Daiane Palhano
                   </h3>
                   <p className="text-[10px] text-brand-dourado uppercase tracking-[0.2em] font-semibold mt-0.5">
-                    Fisioterapeuta & Osteopata
+                    Fisioterapeuta com Atuação em Osteopatia
                   </p>
                   
                   {/* Elegant call-to-action divider at a strategic height */}
                   <div className="mt-3 pt-2.5 border-t border-brand-dourado/10 text-[11px] font-medium text-brand-verde tracking-wider uppercase font-sans flex items-center justify-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-verde animate-pulse shrink-0" />
-                    <span>Conheça nosso espaço no Park Way</span>
+                    <span>Conheça nosso espaço em Brasília</span>
                   </div>
                 </div>
               </div>
@@ -612,7 +621,11 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-brand-creme/30 p-8 rounded-[2rem] border border-brand-creme flex flex-col justify-between hover:shadow-xl hover:border-brand-dourado/20 hover:-translate-y-1.5 transition-all duration-300 group"
+              className={`bg-brand-creme/30 p-8 rounded-[2rem] border border-brand-creme flex flex-col justify-between hover:shadow-xl hover:border-brand-dourado/20 hover:-translate-y-1.5 transition-all duration-300 group ${
+                index === SERVICES.length - 1 
+                  ? 'md:col-span-2 md:max-w-md md:mx-auto md:w-full lg:col-span-1 lg:col-start-2 lg:max-w-none lg:mx-0' 
+                  : ''
+              }`}
             >
               <div>
                 {/* SVG Icon */}
@@ -758,11 +771,59 @@ const About = () => {
               
               <div className="font-sans text-brand-texto-suave space-y-6 text-base md:text-lg font-light leading-relaxed">
                 <p>
-                  Sou fisioterapeuta com formação em Osteopatia, dedicada a oferecer um cuidado humano de excelência no coração do Park Way. O meu consultório foi planejado especificamente para quem busca reabilitação de excelência com máxima discrição e absoluto silêncio, sem precisar enfrentar o trânsito de Brasília para se cuidar.
+                  Sou fisioterapeuta com formação em Osteopatia, dedicada a oferecer um cuidado humano de excelência em Brasília. O meu consultório foi planejado especificamente para quem busca reabilitação de excelência com máxima discrição e absoluto silêncio, priorizando um atendimento resolutivo e individualizado.
                 </p>
                 <p>
-                  Acredito que os moradores do Park Way prezam pela exclusividade e pela qualidade de vida de sua vizinhança. Por isso, ofereço um atendimento sem pressa e individualizado de verdade — seja para você, seus filhos ou seus pais —, integrando Fisioterapia e Osteopatia no quintal da sua casa.
+                  Ofereço um atendimento sem pressa e focado de verdade no paciente — seja para bebês, crianças, adultos ou idosos —, integrando técnicas de Fisioterapia e práticas de Osteopatia com total facilidade, conforto e comodidade.
                 </p>
+              </div>
+
+              {/* Currículo e Formações de Destaque */}
+              <div className="mt-8 pt-8 border-t border-brand-dourado/15">
+                <h3 className="font-display font-medium text-lg text-brand-verde-escuro mb-5 flex items-center gap-2">
+                  <GraduationCap className="text-brand-dourado w-5 h-5 shrink-0" />
+                  Formação de Destaque & Credenciais
+                </h3>
+                
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {/* Graduação */}
+                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
+                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Graduação</span>
+                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Graduação em Fisioterapia</p>
+                  </div>
+
+                  {/* Mestrado */}
+                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
+                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Mestrado</span>
+                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Mestrado em Gerontologia</p>
+                    <p className="text-xs text-brand-texto-suave font-light mt-1">Especialista no envelhecimento ativo, saúde clínica e longevidade.</p>
+                  </div>
+
+                  {/* Pós em Oncologia */}
+                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/15 hover:border-brand-dourado/30 transition-all col-span-1 sm:col-span-2 shadow-sm">
+                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1 flex items-center gap-1.5 font-sans">
+                      <Award className="w-3.5 h-3.5 text-brand-dourado" /> Foco e Especialidade Principal
+                    </span>
+                    <p className="font-sans font-bold text-brand-verde-escuro text-sm">Pós-Graduação em Fisioterapia em Oncologia</p>
+                    <p className="text-xs text-brand-texto-suave font-light mt-1">
+                      Suporte integral para pacientes oncológicos, atuando na reabilitação física, controle do linfedema (linfoterapia) e promoção da qualidade de vida em todas as etapas de cuidado.
+                    </p>
+                  </div>
+
+                  {/* Pós em Osteopatia */}
+                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
+                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Formação Adicional</span>
+                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Pós-Graduação em Osteopatia</p>
+                    <p className="text-xs text-brand-texto-suave font-light mt-1">Especialização clínica avançada (em andamento).</p>
+                  </div>
+
+                  {/* Cursos e Aperfeiçoamentos */}
+                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
+                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Cursos Complementares</span>
+                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Método RTA e Terapia Manual</p>
+                    <p className="text-xs text-brand-texto-suave font-light mt-1">Reequilíbrio Toracoabdominal, Linfoterapia, cuidados paliativos, reabilitação ortopédica e respiratória.</p>
+                  </div>
+                </div>
               </div>
 
               <div className="mt-10">
@@ -882,11 +943,11 @@ const CTAFinal = () => {
           </FadeInText>
           
           <h2 className="font-display font-light text-4xl md:text-5xl lg:text-6xl text-brand-verde-escuro mb-8 text-balance">
-            <SplitText text="Pronta para restaurar sua qualidade de vida?" />
+            <SplitText text="Pronto para restaurar sua qualidade de vida?" />
           </h2>
           
           <p className="text-brand-texto-suave font-light text-lg mb-10 max-w-xl mx-auto leading-relaxed text-balance">
-            Cuidado integral e exclusivo para todas as idades, desenhado sob medida para quem vive ou trabalha no Park Way. Desfrute de sessões inteiramente focadas em você, no silêncio e na tranquilidade da região, sem o estresse e a pressa das grandes avenidas.
+            Cuidado integral e exclusivo para todas as idades, desenhado sob medida para quem vive ou trabalha em Brasília. Desfrute de sessões inteiramente focadas em você, com o máximo de privacidade, no silêncio e na tranquilidade de um ambiente planejado, sem estresse ou pressa.
           </p>
           
           <a

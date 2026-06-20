@@ -7,14 +7,14 @@ export const WHATSAPP_LINK = "https://wa.me/556140426884?text=Ol%C3%A1%2C%20Daia
 export const WHATSAPP_TEXT = "(61) 4042-6884";
 export const INSTAGRAM_LINK = "https://instagram.com/fisiodaipalhano";
 export const INSTAGRAM_TEXT = "@fisiodaipalhano";
-export const CLINIC_LOCATION = "Região do Park Way, Brasília – DF";
+export const CLINIC_LOCATION = "Brasília – DF";
 export const CLINIC_HOURS = "Segunda a sexta, das 08h às 18h";
 
 export const SERVICES = [
   {
     id: "fisioterapia-respiratoria-infantil",
-    title: "Fisioterapia Respiratória Infantil",
-    description: "Para bebês e crianças com dificuldades respiratórias, bronquite, asma e síndromes.",
+    title: "Fisioterapia Respiratória Infantil (Bronquiolite)",
+    description: "Para bebês e crianças com dificuldades respiratórias, bronquiolite, bronquite, asma e síndromes.",
     iconType: "lungs-infant"
   },
   {
@@ -26,25 +26,31 @@ export const SERVICES = [
   {
     id: "fisioterapia-dores-cronicas",
     title: "Fisioterapia para Dores Crônicas",
-    description: "Tratamento de dores persistentes com abordagem funcional e humanizada para adultos, idosos e jovens.",
+    description: "Tratamento de dores persistentes com abordagem functional e humanizada para adultos, idosos e jovens.",
     iconType: "pulse"
   },
   {
     id: "fisioterapia-ortopedica-adultos",
     title: "Fisioterapia Ortopédica (Adultos e Idosos)",
-    description: "Reabilitação de lesões, pós-cirúrgico, desgaste articular (artrose), osteoporose, dores na coluna e fortalecimento para o idoso.",
+    description: "Reabilitação de lesões, pós-cirúrgico, artrose, osteoporose, dores na coluna e fortalecimento para o idoso.",
     iconType: "joint"
   },
   {
+    id: "fisioterapia-oncologica",
+    title: "Fisioterapia Oncológica",
+    description: "Atendimento especializado e humanizado para pacientes oncológicos, auxiliando na reabilitação física, controle de linfedema e bem-estar em todas as etapas.",
+    iconType: "heart"
+  },
+  {
     id: "osteopatia",
-    title: "Osteopatia",
-    description: "Abordagem global e manipulação manual para disfunções do sistema musculoesquelético, visceral e craniano em todas as idades.",
+    title: "Atendimento com Osteopatia",
+    description: "Abordagem global e terapêutica manual para disfunções do sistema musculoesquelético, visceral e craniano em todas as idades.",
     iconType: "hands"
   },
   {
     id: "fisioterapia-respiratoria-adultos",
     title: "Fisioterapia Respiratória (Adultos e Idosos)",
-    description: "Para doenças respiratórias crônicas (DPOC, asma), pós-COVID, reabilitação pulmonar e melhora do fôlego e disposição.",
+    description: "Para doenças respiratórias crônicas (DPOC, asma), pós-COVID e reabilitação pulmonar.",
     iconType: "lungs"
   }
 ];
@@ -56,8 +62,8 @@ export const DIFFERENTIALS = [
     iconType: "user"
   },
   {
-    title: "Sua Referência de Saúde no Park Way",
-    description: "Um espaço exclusivo de reabilitação e bem-estar projetado com foco no perfil exigente e nas famílias do Park Way. O verdadeiro padrão de consultório boutique pertinho de casa, unindo discrição absoluta, facilidade de acesso com estacionamento livre, ambiente arborizado e atendimento VIP sem trânsito.",
+    title: "Referência em Saúde e Reabilitação",
+    description: "Um espaço exclusivo e tranquilo planejado para oferecer o máximo de conforto, aliando discrição absoluta, facilidade de acesso com estacionamento livre, ambiente arborizado e atendimento dedicado focado integralmente de forma personalizada.",
     iconType: "map"
   },
   {
@@ -67,7 +73,7 @@ export const DIFFERENTIALS = [
   },
   {
     title: "Abordagem integrativa",
-    description: "Fisioterapia e Osteopatia unidas harmoniosamente para tratar a causa primária, não apenas o sintoma.",
+    description: "Práticas de Fisioterapia e Osteopatia aliadas para tratar a causa primária do problema, buscando uma recuperação duradoura.",
     iconType: "sparkles"
   }
 ];
@@ -83,11 +89,11 @@ export const FAQS = [
   },
   {
     question: "Você atende todas as idades (de bebês a idosos)?",
-    answer: "Sim! Ofereço atendimento especializado para todas as fases da vida: bebês, crianças, adultos e idosos. Cada protocolo é desenvolvido de forma única e personalizada, respeitando o ritmo, as limitações articulares e a fisiologia individual de cada paciente."
+    answer: "Sim! Ofereço atendimento especializado para todas as fases da vida: bebês, crianças, adultos e idosos. Cada protocolo é desenvolvido de forma única e personalizada, respeitando o ritmo, as limitações e a fisiologia individual de cada paciente."
   },
   {
     question: "Onde fica o consultório?",
-    answer: "O atendimento personalizado é realizado em espaço privado e extremamente tranquilo na região do Park Way, Brasília – DF. O endereço completo é informado após o agendamento."
+    answer: "O consultório está localizado em Brasília - DF, em um ambiente reservado e extremamente tranquilo para garantir o seu conforto e privacidade. O endereço exato é informado de forma personalizada e direta pela profissional após o agendamento da sua consulta."
   },
   {
     question: "Como faço para agendar?",
