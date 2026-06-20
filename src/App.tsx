@@ -822,8 +822,8 @@ const About = () => {
                   {/* Cursos e Aperfeiçoamentos */}
                   <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
                     <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Cursos Complementares</span>
-                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Método RTA e Terapia Manual</p>
-                    <p className="text-xs text-brand-texto-suave font-light mt-1">Reequilíbrio Toracoabdominal, cuidados paliativos, reabilitação ortopédica e respiratória.</p>
+                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Método RTA, Linfoterapia, Laserterapia e Terapia Manual</p>
+                    <p className="text-xs text-brand-texto-suave font-light mt-1">Reequilíbrio Toracoabdominal, linfoterapia, laserterapia, cuidados paliativos, reabilitação ortopédica e respiratória.</p>
                   </div>
                 </div>
               </div>
