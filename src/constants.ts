@@ -25,7 +25,7 @@ export const SERVICES = [
   {
     id: "fisioterapia-dores-cronicas",
     title: "Fisioterapia para Dores Crônicas",
-    description: "Tratamento de dores persistentes com abordagem functional e humanizada para adultos, idosos e jovens.",
+    description: "Tratamento de dores persistentes com abordagem humanizada para adultos, idosos e jovens.",
     iconType: "pulse"
   },
   {
