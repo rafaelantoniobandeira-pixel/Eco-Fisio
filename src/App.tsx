@@ -801,29 +801,45 @@ const About = () => {
                     <p className="text-xs text-brand-texto-suave font-light mt-1">Especialista no envelhecimento ativo, saúde clínica e longevidade.</p>
                   </div>
 
-                  {/* Pós em Oncologia */}
-                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/15 hover:border-brand-dourado/30 transition-all col-span-1 sm:col-span-2 shadow-sm">
-                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1 flex items-center gap-1.5 font-sans">
-                      <Award className="w-3.5 h-3.5 text-brand-dourado" /> Foco e Especialidade Principal
+                  {/* Formações Adicionais */}
+                  <div className="bg-brand-creme/10 p-5 rounded-xl border border-brand-dourado/15 hover:border-brand-dourado/30 transition-all col-span-1 sm:col-span-2 shadow-sm">
+                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-3 flex items-center gap-1.5 font-sans">
+                      <Award className="w-3.5 h-3.5 text-brand-dourado animate-pulse" /> Formações Adicionais
                     </span>
-                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Pós-Graduação em Fisioterapia em Oncologia</p>
-                    <p className="text-xs text-brand-texto-suave font-light mt-1">
-                      Suporte integral para pacientes oncológicos, atuando na reabilitação física e promoção da qualidade de vida em todas as etapas de cuidado.
-                    </p>
-                  </div>
-
-                  {/* Pós em Osteopatia */}
-                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
-                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Formação Adicional</span>
-                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Pós-Graduação em Osteopatia</p>
-                    <p className="text-xs text-brand-texto-suave font-light mt-1">Especialização clínica avançada (em andamento).</p>
-                  </div>
-
-                  {/* Cursos e Aperfeiçoamentos */}
-                  <div className="bg-brand-creme/10 p-4 rounded-xl border border-brand-dourado/10 hover:border-brand-dourado/25 transition-all">
-                    <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1">Cursos Complementares</span>
-                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Método RTA, Linfoterapia, Laserterapia e Terapia Manual</p>
-                    <p className="text-xs text-brand-texto-suave font-light mt-1">Reequilíbrio Toracoabdominal, linfoterapia, laserterapia, cuidados paliativos, reabilitação ortopédica e respiratória.</p>
+                    <ul className="grid sm:grid-cols-2 gap-3 text-sm text-brand-texto-suave font-light font-sans">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span><strong>Pós-graduação em oncologia</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span><strong>Pós-graduação em osteopatia</strong> — em andamento</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span>Curso de RTA (reequilíbrio toracoabdominal)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span>Curso de Linfoterapia</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span>Cursos de laserterapia</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span>Cursos de terapias manuais</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span>Curso de cuidados paliativos</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-dourado mt-1.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-brand-dourado" />
+                        <span>Cursos fisioterapia respiratória</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
