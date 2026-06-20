@@ -806,7 +806,7 @@ const About = () => {
                     <span className="text-[10px] uppercase font-bold text-brand-dourado tracking-wider block mb-1 flex items-center gap-1.5 font-sans">
                       <Award className="w-3.5 h-3.5 text-brand-dourado" /> Foco e Especialidade Principal
                     </span>
-                    <p className="font-sans font-bold text-brand-verde-escuro text-sm">Pós-Graduação em Fisioterapia em Oncologia</p>
+                    <p className="font-sans font-medium text-brand-verde-escuro text-sm">Pós-Graduação em Fisioterapia em Oncologia</p>
                     <p className="text-xs text-brand-texto-suave font-light mt-1">
                       Suporte integral para pacientes oncológicos, atuando na reabilitação física e promoção da qualidade de vida em todas as etapas de cuidado.
                     </p>
