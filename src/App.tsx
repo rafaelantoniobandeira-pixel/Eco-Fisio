@@ -773,7 +773,7 @@ const About = () => {
               
               <div className="font-sans text-brand-texto-suave space-y-6 text-base md:text-lg font-light leading-relaxed">
                 <p>
-                  Sou fisioterapeuta e pós-graduanda em Osteopatia, dedicada a oferecer um cuidado humano de excelência em Brasília. O meu consultório foi planejado especificamente para quem busca reabilitação de excelência com máxima discrição e absoluto silêncio, priorizando um atendimento resolutivo e individualizado.
+                  Minha conduta terapêutica é totalmente individualizada, pautada em uma avaliação funcional detalhada, na definição de objetivos específicos para cada paciente e em reavaliações contínuas ao longo de todo o processo de reabilitação. Atuo de forma integrada, com foco na funcionalidade, na evolução clínica e na promoção de resultados consistentes e duradouros.
                 </p>
                 <p>
                   Ofereço um atendimento sem pressa e focado de verdade no paciente — seja para bebês, crianças, adultos ou idosos —, integrando técnicas de Fisioterapia e práticas de Osteopatia com total facilidade, conforto e comodidade. Procuro compreender a história de cada paciente e integrá-la ao processo terapêutico, para que o tratamento seja mais preciso, individualizado e eficaz, favorecendo melhores resultados.

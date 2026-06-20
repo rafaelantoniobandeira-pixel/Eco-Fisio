@@ -86,7 +86,7 @@ export const FAQS = [
   },
   {
     question: "Onde fica o consultório?",
-    answer: "O consultório está localizado na Região do Park Way, Brasília - DF (próximo ao aeroporto), em um ambiente reservado, arborizado e extremamente tranquilo para garantir o seu conforto e privacidade. O endereço exato e detalhes de acesso são informados diretamente após o agendamento da sua consulta."
+    answer: "O consultório está localizado na Região do Park Way, Brasília - DF (próximo ao aeroporto), em um ambiente reservado, arborizado e extremamente tranquilo para garantir o seu conforto e privacidade."
   },
   {
     question: "Como faço para agendar?",

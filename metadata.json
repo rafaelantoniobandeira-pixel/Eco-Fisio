@@ -1,6 +1,6 @@
 {
-  "name": "Dra. Daiane Palhano - Fisioterapia e Osteopatia",
-  "description": "Site institucional para Dra. Daiane Palhano, especialista em fisioterapia e fisiologia sistêmica com atendimento em Brasília.",
+  "name": "Daiane Palhano Fisioterapia e Osteopatia",
+  "description": "Consultório Dra. Daiane Palhano - Fisioterapia e Osteopatia. Referência em reabilitação de excelência com máxima discrição e absoluto silêncio no Park Way, Brasília. Atendimento resolutivo e individualizado focado em saúde integrada.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
