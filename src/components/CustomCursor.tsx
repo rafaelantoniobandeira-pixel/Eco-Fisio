@@ -71,7 +71,7 @@ export default function CustomCursor() {
         opacity: isHovered ? 0.75 : 1,
       }}
       transition={{ type: 'spring', stiffness: 450, damping: 30 }}
-      className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-[9999]"
+      className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-[9999999]"
     >
       <svg
         width="24"
