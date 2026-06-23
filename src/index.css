@@ -73,3 +73,11 @@
   }
 }
 
+/* Hide default cursor on devices with fine pointer capability (mouse) */
+@media (pointer: fine) {
+  body, a, button, [role="button"], input, select, textarea {
+    cursor: none !important;
+  }
+}
+
+

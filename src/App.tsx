@@ -6,6 +6,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { motion, AnimatePresence } from 'motion/react';
+import CustomCursor from './components/CustomCursor';
 import { 
   Menu, 
   X, 
@@ -1268,6 +1269,7 @@ export default function App() {
       </AnimatePresence>
 
       <div className="min-h-screen font-sans bg-brand-branco text-brand-texto antialiased selection:bg-brand-verde/20 selection:text-brand-verde-escuro">
+        <CustomCursor />
         <Header />
         <main>
           <Hero />
