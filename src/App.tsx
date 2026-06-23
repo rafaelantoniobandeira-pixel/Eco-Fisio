@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import Lenis from 'lenis';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Menu, 
@@ -312,7 +313,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-brand-branco/90 backdrop-blur-md shadow-sm border-b border-brand-creme/50 py-3' 
+          ? 'bg-brand-branco/90 backdrop-blur-md py-3' 
           : 'bg-transparent py-6'
       }`}
     >
@@ -1157,6 +1158,31 @@ export default function App() {
     }, 3200);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (isIntroActive) return;
+
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+    });
+
+    let frameId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      cancelAnimationFrame(frameId);
+    };
+  }, [isIntroActive]);
 
   return (
     <>
